@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--	adminusercontroller{id}から遷移-->
+<head>
+
+<div th:replace ="~{fragment ::meta}"></div>
+<div th:replace ="~{fragment ::styles}"></div>
+<title>会員情報</title>
+</head>
+
+
+<body>
+
+	<div class="samuraitravel-wrapper">
+
+		<div th:replace ="~{fragment::header}"></div>
+
+		<main>
+<!--	bootstrap グリッドシステムの３つのクラスcontainer row col-->
+			<div class="container pb-5 samuraitravel-container">
+<!--				container 5段階の幅xl lg md sm xs				-->
+				<div class="row justify-content-center">
+<!--					row justify content=値を横並びにする		-->
+					<div class="col-xl-5 col-lg-6 col-md-8">
+<!--						col-画面幅-グリッド数-->
+<!--例：col-md-4 画面幅がmdサイズを超えるとそのカラムはグリッド４つ分のカラムになる。-->
+						<nav class="my-3" style="--bs-breadcrumb-divider:'>';" area-label="breadcrumb">
+							<ol class="breadcrumb mb-0">
+								<li class="breadcrumb-item"><a href="/">会員一覧</a></li>
+								<li class="breadcrumb-item active" aria-current="page">会員詳細</li>
+							</ol>
+						</nav>
+
+
+						<h1 class="mb-3 text-center" th:text="${user.getName()}"></h1>
+
+						<div class="container mb-4">
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">ID</span></div>
+								<div class="col"><span th:text="${user.getId()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">氏名</span></div>
+								<div class="col"><span th:text="${user.getName()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">フリガナ</span></div>
+								<div class="col"><span th:text="${user.getFurigana()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">郵便番号</span></div>
+								<div class="col"><span th:text="${user.getPostalCode()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">住所</span></div>
+								<div class="col"><span th:text="${user.getAddress()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">電話番号</span></div>
+								<div class="col"><span th:text="${user.getPhoneNumber()}"></span></div>
+							</div>
+
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4"><span class="fw-bold">メールアドレス</span></div>
+								<div class="col"><span th:text="${user.getEmail()}"></span></div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		 <div th:replace ="~{fragment ::footer}"></div>
+
+
+	</div>
+	<div th:replace="~{fragment ::scripts}"></div>
+</body>
+</html>
